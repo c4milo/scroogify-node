@@ -32,19 +32,27 @@ app.get('/', function(req, res, next) {
         dstPath: dstpath
       };
 
-      if (w) {
-        options.width = w;
-      }
-
-      if (h) {
-        options.height = h;
-      }
-
-      im.resize(options, function(err, stdout, stderr) {
-        if (err)  {
+      im.identify(result.file, function(err, features) {
+        if (err) {
           throw err;
         }
-        res.sendfile(dstpath);
+
+        //console.log(features);
+
+        if (w) {
+          options.width = w > features.width ? features.width : w;
+        }
+
+        if (h) {
+          options.height = h > features.height ? features.height : h;
+        }
+
+        im.resize(options, function(err, stdout, stderr) {
+          if (err)  {
+            throw err;
+          }
+          res.sendfile(dstpath);
+        });
       });
     });
   });
