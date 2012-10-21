@@ -47,7 +47,7 @@ app.get('/', function(req, res, next) {
 });
 
 if (!module.parent) {
-  var port = 3000;
+  var port = process.env.PORT || 3000;
   app.listen(port);
   console.log('Stingy API server listening on port %d', port);
 }
