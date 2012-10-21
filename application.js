@@ -20,6 +20,10 @@ app.get('/', function(req, res, next) {
   var path = basePath + Math.floor((Math.random()*100000000)+1);
 
   request.get({url: req.query.u}, path, function(err, result) {
+    if (!result) {
+      res.send('It was not possible to get image: ' + path);
+      return;
+    }
     var mimetype = mime(result.file, function(err, type) {
 
       var dstpath = path + '-' + w + 'x' + h + '.' + type.split('/')[1];
