@@ -1,4 +1,11 @@
-scroogify-node
-==============
+### Installation
 
-scroogify nodejs server
+```
+apt-get install imagemagick
+npm install
+```
+
+### Running the service
+```
+node server.js
+```
