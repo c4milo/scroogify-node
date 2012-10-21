@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "author": "Camilo Aguilar <camilo@onswipe.com> (http://github.com/c4milo)",
     "engines": {
-        "node": "0.8.x"
+        "node": "0.8.x",
+	"npm": "1.1.x"
     },
     "devDependencies": {
         "mocha": "1.0.3",
